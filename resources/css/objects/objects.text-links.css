@@ -1,0 +1,10 @@
+/*-------------------------------------------------*\
+    Text link object
+    – Simple styling for links within body text
+    - Apply to container rather than individual links
+\*-------------------------------------------------*/
+
+.text-links {
+    text-decoration-line: underline;
+    text-decoration-thickness: from-font;
+}

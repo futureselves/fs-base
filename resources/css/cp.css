@@ -1,0 +1,8 @@
+.nav-section-users + h6,
+.nav-section-impersonator {
+    display: none;
+}
+
+.global-header .white-label-logo {
+    width: 100px;
+}

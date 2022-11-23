@@ -1,0 +1,57 @@
+/*-------------------------------------------------*\
+    Stack objects
+    – Based on https://every-layout.dev/layouts/reel/
+    - CSS only carousel style object
+\*-------------------------------------------------*/
+
+.reel {
+    display: flex;
+    block-size: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-color: var(--black) var(--grey);
+    padding-bottom: var(--space-l);
+    position: relative;
+    scrollbar-width: thin;
+    /* Pull reel out to full width on right hand side (only works when viewport is below .wrapper width) */
+    /* margin-right: calc(var(--space-xl) * -1); */
+}
+
+.reel::-webkit-scrollbar {
+    block-size: var(--space-3xs);
+}
+
+.reel::-webkit-scrollbar-track {
+    background-color: var(--grey);
+    /* Add gutter to right edge of scrollbar */
+    margin-right: var(--space-xl);
+}
+
+.reel::-webkit-scrollbar-thumb {
+    background-color: var(--grey);
+    background-image: linear-gradient(to bottom, var(--black), var(--black));
+}
+
+.reel > * {
+    flex: 0 0 auto;
+    width: calc(50% - (var(--space-xl) / 2));
+}
+
+/* This media query should be set to kick in at the width of .wrapper (inc. any padding)  */
+@media (min-width: 1744px) {
+    .reel {
+        margin-right: 0;
+    }
+
+    .reel::-webkit-scrollbar-track {
+        margin-right: 0;
+    }
+}
+
+/* .reel > * + * {
+    margin-inline-start: 0;
+}
+
+.reel.overflowing {
+    padding-block-end: 0;
+} */

@@ -1,0 +1,29 @@
+/*-------------------------------------------------*\
+    Cluster objects
+    – Based on https://every-layout.dev/layouts/cluster/
+    - Align groups of horizontally laid out elements to the left, right or center
+    - Use for groups of elements that differ in length and are liable to wrap, e.g. text
+\*-------------------------------------------------*/
+
+.cluster {
+    --wrap: wrap;
+    --row-gap: var(--space-2xs);
+    --column-gap: var(--space-m);
+    --align: flex-end;
+    --justify: normal;
+
+    display: flex;
+    flex-wrap: var(--wrap);
+    row-gap: var(--row-gap, 1rem);
+    column-gap: var(--column-gap, 1rem);
+    align-items: var(--align);
+    justify-content: var(--justify);
+}
+
+.cluster--loose {
+    --column-gap: var(--space-l);
+}
+
+.cluster--tight {
+    --column-gap: var(--space-xs);
+}

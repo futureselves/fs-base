@@ -1,0 +1,38 @@
+/*-------------------------------------------------*\
+    Stack objects
+    – Based on https://every-layout.dev/layouts/stack/
+    - Adds margin between a vertical stack of elements
+    - Define multiple stack contexts to allow for different margins in different contexts
+\*-------------------------------------------------*/
+
+/*
+Standard stack context 
+*/
+
+.stack > * + * {
+    margin-block-start: var(--space-m);
+}
+
+/* 
+Large stack context 
+*/
+
+.stack--large > * + * {
+    margin-block-start: var(--space-l);
+}
+
+/* 
+Tight stack context 
+*/
+
+.stack--tight > * + * {
+    margin-block-start: var(--space-xs);
+}
+
+/* 
+Super tight stack context 
+*/
+
+.stack--super-tight > * + * {
+    margin-block-start: var(--space-2xs);
+}

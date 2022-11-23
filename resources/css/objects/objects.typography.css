@@ -1,0 +1,138 @@
+/*-------------------------------------------------*\
+    Typography
+\*-------------------------------------------------*/
+
+::selection {
+    /* background: var(); */
+}
+
+/*
+Headings
+*/
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    /* font-weight: 700; */
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+    /* line-height: var(--line-height-flat); */
+}
+
+h4, .h4, h5, .h5, h6, .h6 {
+    /* line-height: var(--line-height-tight); */
+}
+
+h1, .h1 {
+    /* font-size: var(--step-5); */
+}
+
+h2, .h2 {
+    /* font-size: var(--step-4); */
+}
+
+h3, .h3 {
+    /* font-size: var(--step-3); */
+}
+
+h4, .h4 {
+    /* font-size: var(--step-2); */
+}
+
+h5, .h5 {
+    /* font-size: var(--step-1); */
+}
+
+h6, .h6 {
+    /* font-size: var(--step-0); */
+}
+
+/*
+Sub headings 
+*/
+
+.sub {
+    /* font-size: var(--step--1); */
+    /* text-transform: uppercase; */
+    /* line-height: var(--line-height-flat); */
+}
+
+/* 
+Prose 
+*/
+
+p {
+    /* font-size: var(--step-0); */
+    /* max-width: 50ch; */
+}
+
+.lead,
+.lead p {
+    /* font-size: var(--step-1); */
+    /* max-width: 50ch; */
+}
+
+.mini {
+    /* font-size: var(--step--1); */
+    /* line-height: var(--line-height-slim); */
+}
+
+.micro {
+    /* font-size: var(--step--2); */
+    /* line-height: var(--line-height-slim); */
+}
+
+/* 
+Smallprint 
+*/
+
+small {
+    /* font-size: var(--step--3); */
+    /* line-height: var(--line-height-slim); */
+}
+
+
+/* Block quotes */
+
+blockquote {
+    /* font-size: var(--step-2); */
+    line-height: var(--line-height-slim);
+    /* border-left: var(--space-3xs) solid var(--grey); */
+}
+
+blockquote::before,
+blockquote::after {
+    display: none;
+}
+
+blockquote p {
+    font-size: inherit;
+    /* margin-bottom: var(--space-2xs); */
+    /* padding-left: var(--space-m); */
+    /* max-width: 50ch; */
+}
+
+blockquote p:first-child::before {
+    content: "\201C";
+}
+
+blockquote p:nth-last-child(2)::after {
+    content: "\201D";
+}
+
+blockquote p:nth-last-child(2) {
+    /* margin-bottom: var(--space-s); */
+}
+
+blockquote p:last-child {
+    /* This is the citation styling */
+    /* font-size: var(--step-0); */
+    /* text-transform: uppercase; */
+    /* font-style: normal; */
+    /* line-height: var(--line-height-flat); */
+    /* padding-bottom: var(--space-3xs); */
+}
+
+blockquote p:last-child::before {
+    content: "\2014";
+    display: inline;
+}

@@ -1,0 +1,584 @@
+/*-------------------------------------------------*\
+    SETTINGS
+    - Global variables, config, tools/mixins etc
+\*-------------------------------------------------*/
+
+/*-------------------------------------------------*\
+    Variables (CSS custom properties)
+\*-------------------------------------------------*/
+
+:root {
+    /*
+    Colour palette
+    */
+
+    --black: #000;
+    --grey: #888;
+    --white: #FFF;
+
+    /*
+    Theme colours
+    */
+
+    --background-body:  var(--white);
+    --color-body:       var(--black);
+    --color-links:      var(--black);
+
+    /*
+    Typographic scale
+    - https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12
+    */
+
+    --step--2: clamp(0.78rem, calc(0.77rem + 0.03vw), 0.80rem);
+    --step--1: clamp(0.94rem, calc(0.92rem + 0.11vw), 1.00rem);
+    --step-0: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+    --step-1: clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem);
+    --step-2: clamp(1.62rem, calc(1.50rem + 0.58vw), 1.95rem);
+    --step-3: clamp(1.94rem, calc(1.77rem + 0.87vw), 2.44rem);
+    --step-4: clamp(2.33rem, calc(2.08rem + 1.25vw), 3.05rem);
+    --step-5: clamp(2.80rem, calc(2.45rem + 1.77vw), 3.82rem);
+    
+    /*
+    Theme typography
+    */
+    --font-main:            -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-size-base:       var(--step-0);
+    --line-height-base:     1.5;
+    --line-height-slim:     1.4;
+    --line-height-tight:    1.2;
+    --line-height-flat:     1.0;
+
+    /*
+    Spacing rhythm
+    - https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12
+    */
+    --space-3xs: clamp(0.31rem, calc(0.31rem + 0.00vw), 0.31rem);
+    --space-2xs: clamp(0.56rem, calc(0.54rem + 0.11vw), 0.63rem);
+    --space-xs: clamp(0.88rem, calc(0.85rem + 0.11vw), 0.94rem);
+    --space-s: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+    --space-m: clamp(1.69rem, calc(1.62rem + 0.33vw), 1.88rem);
+    --space-l: clamp(2.25rem, calc(2.16rem + 0.43vw), 2.50rem);
+    --space-xl: clamp(3.38rem, calc(3.24rem + 0.65vw), 3.75rem);
+    --space-2xl: clamp(4.50rem, calc(4.33rem + 0.87vw), 5.00rem);
+    --space-3xl: clamp(6.75rem, calc(6.49rem + 1.30vw), 7.50rem);
+    
+    /* 
+    Theme spacing 
+    */
+    --spacing-section:  var(--space-3xl);
+
+    /* 
+    Theme layout 
+    */
+    --wrapper-width:    1480px;
+}
+
+/*-------------------------------------------------*\
+    Animation keyframes
+\*-------------------------------------------------*/
+
+/* @keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+} */
+
+/* @keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+} */
+
+/* @keyframes swipe {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+} */
+
+/*-------------------------------------------------*\
+    Font-face
+\*-------------------------------------------------*/
+
+/* @font-face {
+  font-family: 'example';
+  src: url('../fonts/example.woff2') format('woff2'),
+       url('../fonts/example.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+} */
+
+/*-------------------------------------------------*\
+    GENERIC
+    - Ground-zero styles (normalize, resets, etc.)
+\*-------------------------------------------------*/
+
+/*-------------------------------------------------*\
+    Box sizing
+\*-------------------------------------------------*/
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/*-------------------------------------------------*\
+    Style resets
+\*-------------------------------------------------*/
+
+/*
+Remove default margin & padding
+*/
+
+body,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dd, ol, ul,
+form, fieldset, legend,
+figure,
+table, th, td, caption,
+hr {
+    margin:  0;
+    padding: 0;
+}
+
+li > ul,
+li > ol {
+    margin-bottom: 0;
+}
+
+/* 
+Reset tables
+*/
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td,
+th {
+    padding: 0;
+}
+
+/* 
+Remove bottom space on images etc 
+*/
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/* 
+Reset forms & fields 
+*/
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* 
+Inherit fonts for inputs and buttons 
+*/
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 
+Text decoration thickness 
+*/
+
+/* a,
+a:hover,
+a:focus {
+    text-decoration-thickness: from-font;
+} */
+
+/* 
+Fix for horizontal overflow in Safari 
+*/
+
+html, body {
+	position: relative;
+	overflow-x: hidden;
+}
+
+/*-------------------------------------------------*\
+    ELEMENTS
+    - Unclassed HTML elements (type selectors)
+\*-------------------------------------------------*/
+
+/*-------------------------------------------------*\
+    Page level elements (html & body)
+\*-------------------------------------------------*/
+
+html,
+body {
+    height: 100%;
+}
+
+/* Smooth scroll in-page links */
+
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100%;
+    font-family: var(--font-main);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    background: var(--background-body);
+    color: var(--color-body);
+}
+
+/*-------------------------------------------------*\
+    Links
+\*-------------------------------------------------*/
+
+a {
+    color: var(--color-links);
+    text-decoration-line: none;
+    -webkit-text-decoration-skip: ink;
+            text-decoration-skip-ink: auto;
+}
+
+a:hover,
+a:focus {
+    text-decoration-line: underline;
+    text-decoration-color: var(--coral);
+    text-decoration-thickness: 2px;
+}
+
+/*-------------------------------------------------*\
+    Images
+\*-------------------------------------------------*/
+
+img {
+    max-width: 100%; /* Fluid images for responsive purposes */
+    font-style: italic; /* Offset alt text from surrounding copy */
+}
+
+/* If width and/or height are explicitly defined, do not make the image fluid */
+
+img[width],
+img[height] {
+    /* max-width: none; */
+}
+
+/*-------------------------------------------------*\
+    OBJECTS
+    - Cosmetic-free skeleton design patterns and base building blocks
+    - Introduce classes from this layer onwards
+\*-------------------------------------------------*/
+
+/* TODO: WATCH ANDY'S TALK: https://twitter.com/hankchizljaw/status/1544310058497998850?cxt=HHwWhICwvZ30vu4qAAAA */
+
+/* TODO: ADD EVERY LAYOUT LAYOUTS HERE: https://every-layout.dev/layouts/ */
+
+/*-------------------------------------------------*\
+    Typography
+\*-------------------------------------------------*/
+
+::-moz-selection {
+    /* background: var(); */
+}
+
+::selection {
+    /* background: var(); */
+}
+
+/*
+Headings
+*/
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    /* font-weight: 700; */
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+    /* line-height: var(--line-height-flat); */
+}
+
+h4, .h4, h5, .h5, h6, .h6 {
+    /* line-height: var(--line-height-tight); */
+}
+
+h1, .h1 {
+    /* font-size: var(--step-5); */
+}
+
+h2, .h2 {
+    /* font-size: var(--step-4); */
+}
+
+h3, .h3 {
+    /* font-size: var(--step-3); */
+}
+
+h4, .h4 {
+    /* font-size: var(--step-2); */
+}
+
+h5, .h5 {
+    /* font-size: var(--step-1); */
+}
+
+h6, .h6 {
+    /* font-size: var(--step-0); */
+}
+
+/*
+Sub headings 
+*/
+
+.sub {
+    /* font-size: var(--step--1); */
+    /* text-transform: uppercase; */
+    /* line-height: var(--line-height-flat); */
+}
+
+/* 
+Prose 
+*/
+
+p {
+    /* font-size: var(--step-0); */
+    /* max-width: 50ch; */
+}
+
+.lead,
+.lead p {
+    /* font-size: var(--step-1); */
+    /* max-width: 50ch; */
+}
+
+.mini {
+    /* font-size: var(--step--1); */
+    /* line-height: var(--line-height-slim); */
+}
+
+.micro {
+    /* font-size: var(--step--2); */
+    /* line-height: var(--line-height-slim); */
+}
+
+/* 
+Smallprint 
+*/
+
+small {
+    /* font-size: var(--step--3); */
+    /* line-height: var(--line-height-slim); */
+}
+
+/* Block quotes */
+
+blockquote {
+    /* font-size: var(--step-2); */
+    line-height: var(--line-height-slim);
+    /* border-left: var(--space-3xs) solid var(--grey); */
+}
+
+blockquote::before,
+blockquote::after {
+    display: none;
+}
+
+blockquote p {
+    font-size: inherit;
+    /* margin-bottom: var(--space-2xs); */
+    /* padding-left: var(--space-m); */
+    /* max-width: 50ch; */
+}
+
+blockquote p:first-child::before {
+    content: "\201C";
+}
+
+blockquote p:nth-last-child(2)::after {
+    content: "\201D";
+}
+
+blockquote p:nth-last-child(2) {
+    /* margin-bottom: var(--space-s); */
+}
+
+blockquote p:last-child {
+    /* This is the citation styling */
+    /* font-size: var(--step-0); */
+    /* text-transform: uppercase; */
+    /* font-style: normal; */
+    /* line-height: var(--line-height-flat); */
+    /* padding-bottom: var(--space-3xs); */
+}
+
+blockquote p:last-child::before {
+    content: "\2014";
+    display: inline;
+}
+
+/*-------------------------------------------------*\
+    Lists
+\*-------------------------------------------------*/
+
+.list-unstyled {
+    list-style: none;
+}
+
+.list-inline {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: var(--space-xs);
+}
+
+.list-inline > li {
+    margin-right: var(--space-m);
+}
+
+.list-inline > li:last-of-type {
+    margin-right: 0;
+}
+
+/*-------------------------------------------------*\
+    Text link object
+    – Simple styling for links within body text
+    - Apply to container rather than individual links
+\*-------------------------------------------------*/
+
+.text-links {
+    text-decoration-line: underline;
+    text-decoration-thickness: from-font;
+}
+
+/*-------------------------------------------------*\
+    Wrapper object
+\*-------------------------------------------------*/
+
+.wrapper {
+    width: 100%;
+    max-width: calc(var(--wrapper-width) + (var(--space-xl) * 2));
+    padding-right: var(--space-xl);
+    padding-left: var(--space-xl);
+    margin-right: auto;
+    margin-left:  auto;
+}
+
+@media (max-width: 767.98px) {
+    .wrapper {
+        padding-right: var(--space-m);
+        padding-left: var(--space-m);
+    }
+}
+
+@media (max-width: 449.98px) {
+    .wrapper {
+        padding-right: var(--space-s);
+        padding-left: var(--space-s);
+    }
+}
+
+/* @import "./objects/objects.stack.css"; */
+
+/* @import "./objects/objects.cluster.css"; */
+
+/* @import "./objects/objects.reel.css"; */
+
+/*-------------------------------------------------*\
+    COMPONENTS
+    - Designed components, chunks of UI
+\*-------------------------------------------------*/
+
+/* @import "./components/components.page.css"; */
+
+/*-------------------------------------------------*\
+    UTILITIES
+    - Helpers and overrides
+    - High specificity
+\*-------------------------------------------------*/
+
+/* @import "./utilities/utilities.preload.css"; */
+
+/*-------------------------------------------------*\
+    Override animation based on user preferences
+\*-------------------------------------------------*/
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+/*-------------------------------------------------*\
+    Helper classes
+    - Use !important to ensure high specificity
+    - Only add helper classes as they're needed
+\*-------------------------------------------------*/
+
+/* .mb-0 {
+    margin-bottom: 0 !important;
+} */
+
+/* .italic {
+    font-style: italic !important;
+} */
+
+/* .line-height-flat {
+    line-height: var(--line-height-flat) !important;
+} */
+
+/* .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+} */
+
+/*-------------------------------------------------*\
+    Hacks
+    – Document all hacks:
+      What part of the codebase does it relate to?
+      Why was this needed?
+      How does this fix it?
+      How might you fix it properly, given more time?
+\*-------------------------------------------------*/
+
+/* @media print { @import "./utilities/utilities.print.css"; } */

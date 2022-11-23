@@ -1,0 +1,8 @@
+editors:
+  title: Editors
+  roles:
+    - editor
+site_owner:
+  title: 'Site Owner'
+  roles:
+    - site_owner

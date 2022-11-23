@@ -1,0 +1,21 @@
+/*-------------------------------------------------*\
+    Lists
+\*-------------------------------------------------*/
+
+.list-unstyled {
+    list-style: none;
+}
+
+.list-inline {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: var(--space-xs);
+}
+
+.list-inline > li {
+    margin-right: var(--space-m);
+}
+
+.list-inline > li:last-of-type {
+    margin-right: 0;
+}

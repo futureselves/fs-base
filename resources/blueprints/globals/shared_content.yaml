@@ -1,0 +1,61 @@
+sections:
+  contact_details:
+    display: 'Contact Details'
+    fields:
+      -
+        handle: contact_email
+        field:
+          input_type: email
+          antlers: false
+          display: 'Contact Email'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+          validate:
+            - required
+      -
+        handle: social_links
+        field:
+          fields:
+            -
+              handle: title
+              field:
+                input_type: text
+                antlers: false
+                display: Title
+                type: text
+                icon: text
+                width: 50
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+                always_save: false
+                validate:
+                  - required
+            -
+              handle: url
+              field:
+                input_type: url
+                antlers: false
+                display: URL
+                type: text
+                icon: text
+                width: 50
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+                always_save: false
+                validate:
+                  - required
+          mode: table
+          reorderable: true
+          display: 'Social Links'
+          type: grid
+          icon: grid
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false

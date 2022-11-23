@@ -1,0 +1,19 @@
+export_paths:
+  - config/statamic/antlers.php
+  - config/statamic/cp.php
+  - config/statamic/assets.php
+  - config/statamic/editions.php
+  - config/statamic/bard_texstyle.php
+  - content
+  - resources
+  - public/assets
+  - public/css
+  - public/fonts
+  - public/js
+  - public/humans.txt
+  - package.json
+  - webpack.mix.js
+dependencies:
+  aryehraber/statamic-impersonator: ^2.4
+  jacksleight/statamic-bard-mutator: ^1.1
+  jacksleight/statamic-bard-texstyle: ^1.0

@@ -1,0 +1,26 @@
+/*-------------------------------------------------*\
+    Wrapper object
+\*-------------------------------------------------*/
+
+.wrapper {
+    width: 100%;
+    max-width: calc(var(--wrapper-width) + (var(--space-xl) * 2));
+    padding-right: var(--space-xl);
+    padding-left: var(--space-xl);
+    margin-right: auto;
+    margin-left:  auto;
+}
+
+@media (max-width: 767.98px) {
+    .wrapper {
+        padding-right: var(--space-m);
+        padding-left: var(--space-m);
+    }
+}
+
+@media (max-width: 449.98px) {
+    .wrapper {
+        padding-right: var(--space-s);
+        padding-left: var(--space-s);
+    }
+}

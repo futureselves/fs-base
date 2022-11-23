@@ -1,0 +1,23 @@
+/*-------------------------------------------------*\
+    Page level elements (html & body)
+\*-------------------------------------------------*/
+
+html,
+body {
+    height: 100%;
+}
+
+/* Smooth scroll in-page links */
+
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100%;
+    font-family: var(--font-main);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    background: var(--background-body);
+    color: var(--color-body);
+}

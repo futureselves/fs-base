@@ -1,0 +1,95 @@
+/*-------------------------------------------------*\
+    Style resets
+\*-------------------------------------------------*/
+
+/*
+Remove default margin & padding
+*/
+
+body,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dd, ol, ul,
+form, fieldset, legend,
+figure,
+table, th, td, caption,
+hr {
+    margin:  0;
+    padding: 0;
+}
+
+li > ul,
+li > ol {
+    margin-bottom: 0;
+}
+
+/* 
+Reset tables
+*/
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td,
+th {
+    padding: 0;
+}
+
+/* 
+Remove bottom space on images etc 
+*/
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/* 
+Reset forms & fields 
+*/
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* 
+Inherit fonts for inputs and buttons 
+*/
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 
+Text decoration thickness 
+*/
+
+/* a,
+a:hover,
+a:focus {
+    text-decoration-thickness: from-font;
+} */
+
+/* 
+Fix for horizontal overflow in Safari 
+*/
+
+html, body {
+	position: relative;
+	overflow-x: hidden;
+}

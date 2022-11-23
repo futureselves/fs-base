@@ -1,0 +1,11 @@
+/*-------------------------------------------------*\
+    Show no animations when .preload class exists on body
+\*-------------------------------------------------*/
+
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
