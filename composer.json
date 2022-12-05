@@ -1,9 +1,9 @@
 {
-    "name": "my-vendor-name/fs-base",
+    "name": "futureselves/fs-base",
     "extra": {
         "statamic": {
-            "name": "Fs Base",
-            "description": "Fs Base starter kit"
+            "name": "FS Base",
+            "description": "FS Base starter kit"
         }
     }
 }
