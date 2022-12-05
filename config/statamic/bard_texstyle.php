@@ -13,6 +13,14 @@ return [
 
     'styles' => [
 
+        'lead' => [
+            'type'   => 'paragraph',
+            'name'   => 'Lead Paragraph',
+            'ident'  => 'L',
+            'class'  => 'lead',
+            'cp_css' => 'font-size: 1.25em; margin-top: -0.5em',
+        ],
+
         // 'hero' => [
         //     'type'   => 'heading',
         //     'level'  => 1,
@@ -20,14 +28,6 @@ return [
         //     'ident'  => 'H',
         //     'class'  => 'hero-heading',
         //     'cp_css' => 'font-family: Caslon',
-        // ],
-
-        // 'intro' => [
-        //     'type'   => 'paragraph',
-        //     'name'   => 'Introduction',
-        //     'ident'  => 'I',
-        //     'class'  => 'introduction',
-        //     'cp_css' => 'font-size: 1.25em; margin-top: -0.5em',
         // ],
 
         // 'brand' => [

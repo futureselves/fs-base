@@ -1,0 +1,31 @@
+/*-------------------------------------------------*\
+    Switcher object
+    – Based on https://every-layout.dev/layouts/switcher/
+    - Switches a flexbox context between a horizontal and vertical layout at a given, container-based breakpoint
+    - If the breakpoint is 30rem, the layout will switch to a vertical configuration when the parent element is less than 30rem wide
+\*-------------------------------------------------*/
+
+.switcher {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s1);
+    --threshold: 60rem; /* Sets container-based breakpoint width to switch layouts */
+}
+
+.switcher > * {
+    flex-grow: 1;
+    flex-basis: calc((var(--threshold) - 100%) * 999);
+}
+
+/* Disable horizontal configuration when limit is reached */
+
+.switcher > :nth-last-child(n+ 5),
+.switcher > :nth-last-child(n+ 5) ~ * {
+    flex-basis: 100%;
+}
+
+/* Example showing how to allocate more or less of the available space when in a horizontal configuration */
+
+/* .switcher > :nth-child(2) {
+    flex-grow: 2;
+} */

@@ -105,18 +105,7 @@
     }
 } */
 
-/*-------------------------------------------------*\
-    Font-face
-\*-------------------------------------------------*/
-
-/* @font-face {
-  font-family: 'example';
-  src: url('../fonts/example.woff2') format('woff2'),
-       url('../fonts/example.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-} */
+/* @import "./settings/settings.fonts.css"; */
 
 /*-------------------------------------------------*\
     GENERIC
@@ -282,7 +271,10 @@ a:focus {
     Images
 \*-------------------------------------------------*/
 
-img {
+img,
+picture {
+    display: block;
+    height: auto;
     max-width: 100%; /* Fluid images for responsive purposes */
     font-style: italic; /* Offset alt text from surrounding copy */
 }
@@ -506,18 +498,216 @@ blockquote p:last-child::before {
     }
 }
 
-/* @import "./objects/objects.stack.css"; */
+/*-------------------------------------------------*\
+    Stack objects
+    – Based on https://every-layout.dev/layouts/stack/
+    - Adds margin between a vertical stack of elements
+    - Define multiple stack contexts to allow for different margins in different contexts
+\*-------------------------------------------------*/
 
-/* @import "./objects/objects.cluster.css"; */
+/*
+Standard stack context 
+*/
+
+.stack > * + * {
+    -webkit-margin-before: var(--space-m);
+            margin-block-start: var(--space-m);
+}
+
+/* 
+Large stack context 
+*/
+
+.stack--large > * + * {
+    -webkit-margin-before: var(--space-l);
+            margin-block-start: var(--space-l);
+}
+
+/* 
+Tight stack context 
+*/
+
+.stack--tight > * + * {
+    -webkit-margin-before: var(--space-xs);
+            margin-block-start: var(--space-xs);
+}
+
+/* 
+Super tight stack context 
+*/
+
+.stack--super-tight > * + * {
+    -webkit-margin-before: var(--space-2xs);
+            margin-block-start: var(--space-2xs);
+}
+
+/*-------------------------------------------------*\
+    Switcher object
+    – Based on https://every-layout.dev/layouts/switcher/
+    - Switches a flexbox context between a horizontal and vertical layout at a given, container-based breakpoint
+    - If the breakpoint is 30rem, the layout will switch to a vertical configuration when the parent element is less than 30rem wide
+\*-------------------------------------------------*/
+
+.switcher {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s1);
+    --threshold: 60rem; /* Sets container-based breakpoint width to switch layouts */
+}
+
+.switcher > * {
+    flex-grow: 1;
+    flex-basis: calc((var(--threshold) - 100%) * 999);
+}
+
+/* Disable horizontal configuration when limit is reached */
+
+.switcher > :nth-last-child(n+ 5),
+.switcher > :nth-last-child(n+ 5) ~ * {
+    flex-basis: 100%;
+}
+
+/* Example showing how to allocate more or less of the available space when in a horizontal configuration */
+
+/* .switcher > :nth-child(2) {
+    flex-grow: 2;
+} */
+
+/*-------------------------------------------------*\
+    Cluster objects
+    – Based on https://every-layout.dev/layouts/cluster/
+    - Align groups of horizontally laid out elements to the left, right or center
+    - Use for groups of elements that differ in length and are liable to wrap, e.g. text
+\*-------------------------------------------------*/
+
+.cluster {
+    --wrap: wrap;
+    --row-gap: var(--space-2xs);
+    --column-gap: var(--space-m);
+    --align: flex-end;
+    --justify: normal;
+
+    display: flex;
+    flex-wrap: var(--wrap);
+    row-gap: var(--row-gap, 1rem);
+    -moz-column-gap: var(--column-gap, 1rem);
+         column-gap: var(--column-gap, 1rem);
+    align-items: var(--align);
+    justify-content: var(--justify);
+}
+
+.cluster--loose {
+    --column-gap: var(--space-l);
+}
+
+.cluster--tight {
+    --column-gap: var(--space-xs);
+}
 
 /* @import "./objects/objects.reel.css"; */
+
+/*-------------------------------------------------*\
+    Expandable details component
+\*-------------------------------------------------*/
+
+.expand {
+    width: 100%;
+}
+
+.expand .expand__summary:hover,
+.expand .expand__summary:focus {
+    cursor: pointer;
+}
+
+.expand summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    -moz-column-gap: var(--space-m);
+         column-gap: var(--space-m);
+}
+
+.expand summary::marker,
+.expand summary::-webkit-details-marker {
+    content: "";
+    display: none;
+}
+
+.expand .expand__summary svg {
+    flex-shrink: 0;
+}
+
+.expand[open] .expand__summary svg {
+    width: 17px;
+    transform: rotate(45deg);
+}
+
+/*-------------------------------------------------*\
+    Step component
+\*-------------------------------------------------*/
+
+.step {
+    
+}
 
 /*-------------------------------------------------*\
     COMPONENTS
     - Designed components, chunks of UI
 \*-------------------------------------------------*/
 
-/* @import "./components/components.page.css"; */
+/*-------------------------------------------------*\
+    Page component
+\*-------------------------------------------------*/
+
+.page {
+    
+}
+
+/*-------------------------------------------------*\
+    Button component
+\*-------------------------------------------------*/
+
+.btn {
+    font-size: var(--step-1);
+    line-height: var(--line-height-flat);
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn__icon {
+    /* width: var(--space-l);
+    height: var(--space-l);
+    margin-inline-end: var(--space-xs);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; */
+}
+
+.btn:hover,
+.btn:focus {
+    text-decoration-color: var(--grey);
+}
+
+/* Colour variants */
+
+/* .btn--variant { } */
+
+/*-------------------------------------------------*\
+    Flow component
+\*-------------------------------------------------*/
+
+.flow-content {
+    
+}
+
+/*-------------------------------------------------*\
+    Two column component
+\*-------------------------------------------------*/
+
+.two-column {
+    
+}
 
 /*-------------------------------------------------*\
     UTILITIES

@@ -1,0 +1,34 @@
+/*-------------------------------------------------*\
+    Expandable details component
+\*-------------------------------------------------*/
+
+.expand {
+    width: 100%;
+}
+
+.expand .expand__summary:hover,
+.expand .expand__summary:focus {
+    cursor: pointer;
+}
+
+.expand summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: var(--space-m);
+}
+
+.expand summary::marker,
+.expand summary::-webkit-details-marker {
+    content: "";
+    display: none;
+}
+
+.expand .expand__summary svg {
+    flex-shrink: 0;
+}
+
+.expand[open] .expand__summary svg {
+    width: 17px;
+    transform: rotate(45deg);
+}

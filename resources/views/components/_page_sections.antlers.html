@@ -1,0 +1,46 @@
+{{ page_sections }}
+
+    {{ if type == "two_column" }}
+    
+        <div class="switcher">
+            {{ partial:components/flow_content prefix="left_" }}
+            {{ partial:components/flow_content prefix="right_" }}
+        </div>
+    
+    {{ elseif type == "expandable" }}
+
+        <h2>{{ title }}</h2>
+
+        {{ i = 0 }}
+        {{ expand_items }}
+            {{ i += 1 }}
+            {{ partial:components/expand i="{{ i }}" }}
+        {{ /expand_items }}
+
+        <div class="cluster cluster--loose">
+            {{ buttons }}
+                {{ partial:components/button }}
+            {{ /buttons }}
+        </div>
+    
+    {{ elseif type == "steps" }}
+
+        <h2>{{ title }}</h2>
+
+        <div class="switcher">
+
+            {{ steps_items }}
+                {{ partial:components/step }}
+            {{ /steps_items }}
+
+        </div>
+
+        <div class="cluster cluster--loose">
+            {{ buttons }}
+                {{ partial:components/button }}
+            {{ /buttons }}
+        </div>
+    
+    {{ /if }}
+ 
+{{ /page_sections }}

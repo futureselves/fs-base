@@ -1,0 +1,11 @@
+<details class="expand">
+    <summary class="expand__summary" id="expand__summary{{ i }}">
+        <h2>{{ expand_title }}</h2>
+        <svg aria-hidden="true" focusable="false" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" loading="lazy">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.59937 0.858276H9.7327V7.79163H16.666V9.92496H9.7327V16.8583H7.59937V9.92496H0.666016V7.79163H7.59937V0.858276Z" fill="currentColor"/>
+        </svg>
+    </summary>
+    <div aria-labelledby="expand__summary{{ i }}" class="expand__content">
+        {{ partial:components/flow_content prefix="expand_" }}
+    </div>
+</details>

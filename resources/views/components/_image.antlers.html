@@ -1,0 +1,5 @@
+<picture>
+    <source srcset="{{ glide:image quality="{{ quality }}" format="avif" }}" type="image/avif" >
+    <source srcset="{{ glide:image quality="{{ quality }}" format="webp" }}" type="image/webp" >    
+    <img src="{{ glide:image width="{{ width }}" height="{{ height }}" quality="{{ quality }}" format="jpg" }}" alt="{{ alt }}" width="{{ width }}" height="{{ height }}" draggable="false" loading="lazy">
+</picture>

@@ -1,0 +1,19 @@
+title: 'Button Group'
+fields:
+  -
+    handle: buttons
+    field:
+      fields:
+        -
+          import: button
+      mode: table
+      max_rows: 3
+      add_row: 'Add Button'
+      reorderable: true
+      display: Buttons
+      type: grid
+      icon: grid
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false

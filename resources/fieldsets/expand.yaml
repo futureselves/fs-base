@@ -1,0 +1,31 @@
+title: Expand
+fields:
+  -
+    handle: expand_items
+    field:
+      fields:
+        -
+          handle: expand_title
+          field:
+            input_type: text
+            antlers: false
+            display: Title
+            type: text
+            icon: text
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            always_save: false
+        -
+          import: flow_content
+          prefix: expand_
+      mode: stacked
+      add_row: 'Add Expandable Area'
+      reorderable: true
+      display: Items
+      type: grid
+      icon: grid
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false

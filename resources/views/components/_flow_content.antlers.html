@@ -1,0 +1,30 @@
+<div class="flow-content">
+
+    <div class="stack">
+
+        {{ scope handle_prefix="{ prefix }" }}
+            {{ flow_content }}
+        {{ /scope }}
+        
+            {{ if type == "text" }}
+
+                {{ text }}
+
+            {{ elseif type == "button" }}
+
+                {{ partial:components/button }}
+            
+            {{ elseif type == "image" }}
+
+                {{ partial:components/image width="1020" height="" quality="65" }}
+
+            {{ /if }}
+            
+        
+        {{ scope handle_prefix="{ prefix }" }}
+            {{ /flow_content }}
+        {{ /scope }}
+
+    </div>
+    
+</div>

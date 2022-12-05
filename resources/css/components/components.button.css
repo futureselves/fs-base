@@ -1,0 +1,29 @@
+/*-------------------------------------------------*\
+    Button component
+\*-------------------------------------------------*/
+
+.btn {
+    font-size: var(--step-1);
+    line-height: var(--line-height-flat);
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn__icon {
+    /* width: var(--space-l);
+    height: var(--space-l);
+    margin-inline-end: var(--space-xs);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; */
+}
+
+.btn:hover,
+.btn:focus {
+    text-decoration-color: var(--grey);
+}
+
+/* Colour variants */
+
+/* .btn--variant { } */

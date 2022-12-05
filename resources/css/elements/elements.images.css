@@ -2,7 +2,10 @@
     Images
 \*-------------------------------------------------*/
 
-img {
+img,
+picture {
+    display: block;
+    height: auto;
     max-width: 100%; /* Fluid images for responsive purposes */
     font-style: italic; /* Offset alt text from surrounding copy */
 }
